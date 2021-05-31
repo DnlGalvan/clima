@@ -100,6 +100,19 @@ function App() {
             Nas demais localidades, a chuva será fraca.</p>
         </div>
       </div>
+      <footer>
+        <div id="rodape">
+          <p id="logo">CLIMAPREV</p>
+          <div id="links">
+            <a href="#"><strong>HOME</strong></a><br/>
+            <a href="#">Previsão</a><br/>
+            <a href="#">Tempo</a><br/>
+            <a href="#">Clima</a><br/>
+            <a href="#">Chuva</a><br/>
+          </div>
+          <p id="copyright">Copyright 2021 - Climatempo. Todos os direitos reservados - Site Parceiro do UOL Notícias.</p>
+        </div>
+      </footer>
     </main>
   );
 }
