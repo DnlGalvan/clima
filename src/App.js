@@ -85,7 +85,9 @@ function App() {
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id dolor enim.
                   Duis blandit vitae velit sed tempus. Nunc finibus arcu vel scelerisque efficitur.
                   Etiam iaculis felis posuere, dignissim nisi vitae, mollis turpis. Nunc eget tincidunt magna.
-                  Nullam commodo ante at sagittis ultricies. Quisque sed condimentum mi. Cras pellentesque, nunc non cursus tempus, nibh tortor blandit nibh, nec venenatis arcu orci ac erat. Ut blandit pretium urna. Donec vulputate ligula orci. Integer ut ipsum est. Sed eget malesuada nulla, nec feugiat dolor. Nunc interdum nisi elementum, malesuada nisi non, convallis est.</p>
+                  Nullam commodo ante at sagittis ultricies. Quisque sed condimentum mi. Cras pellentesque, nunc non cursus tempus,
+                  nibh tortor blandit nibh, nec venenatis arcu orci ac erat. Ut blandit pretium urna. Donec vulputate ligula orci.
+                  Integer ut ipsum est. Sed eget malesuada nulla, nec feugiat dolor. Nunc interdum nisi elementum, malesuada nisi non, convallis est.</p>
               </div>
             ) : (
         <>
@@ -98,7 +100,14 @@ function App() {
               ))
             }
           </select>
-          <input type="text" id="cidade" placeholder="Cidade" onKeyPress={checarEnter}/>
+          <select name="cidades-brasil" onChange={(event) => pegarCidades(event.currentTarget.value)} onKeyPress={checarEnter}>
+            <option value="cidade">Selecione uma cidade</option>
+            {
+              cidades.map( (cidade) => (
+                <option key={cidade.nome} value={cidade.nome}>{cidade.nome}</option>
+              ))
+            }
+          </select>
           <button onClick={buscarPrevisao}>Previsão</button>
           {
             tempo && (
