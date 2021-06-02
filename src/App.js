@@ -8,6 +8,7 @@ function App() {
   const [paginaAtual, setPaginaAtual] = useState('Home')
   const [estados, setEstados] = useState([])
   const [cidades, setCidades] = useState([])
+  const [cidadeSelecionada, setCidadeSelecionada] = useState('')
 
   const instance = axios.create({
     baseURL: 'http://api.openweathermap.org/data/2.5',
@@ -16,7 +17,7 @@ function App() {
 
   const ibge = axios.create({
     baseURL: 'https://servicodados.ibge.gov.br/api/v1',
-    timeout: 1000,
+    timeout: 10000,
   });
 
   useEffect( () => {
@@ -39,7 +40,6 @@ function App() {
     var cidade = document.getElementById('cidade').value
     const response = await instance.get(`weather?appid=3aeafce6764735fa427255acec3707e0&q=${cidade}&units=metric`)
     setTempo(response.data)
-    document.getElementById("cidade").value = ""
   }
 
   async function buscarPrevisaoPorCoord(lat, lon) {
@@ -100,7 +100,7 @@ function App() {
               ))
             }
           </select>
-          <select name="cidades-brasil" onChange={(event) => pegarCidades(event.currentTarget.value)} onKeyPress={checarEnter}>
+          <select name="cidades-brasil" id="cidade" onKeyPress={checarEnter}>
             <option value="cidade">Selecione uma cidade</option>
             {
               cidades.map( (cidade) => (
